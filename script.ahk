@@ -2,12 +2,16 @@
 ;▼ NUMLOCK AND CAPSOLOCK MOD: press=ON, hold=OFF
 NumLock::
 CapsLock::{
-   if A_Thishotkey="CapsLock"
+   if A_Thishotkey="CapsLock" {
       SetCapsLockState False
-   if A_Thishotkey="NumLock"
+      tt:=["CapsLock OFF - Hold to enable","CapsLock ON"]
+   }
+   if A_Thishotkey="NumLock" {
       SetNumLockState True
+      tt:=["NumLock ON - Hold to disable","NumLock OFF"]
+   }
 
-   ToolTip (A_Thishotkey " ON - Hold to disable")
+   ToolTip tt[1]
    SetTimer ()=>ToolTip(), -1200
 
    Sleep 200
@@ -18,7 +22,7 @@ CapsLock::{
       if A_Thishotkey="NumLock"
          SetNumLockState False
 
-      ToolTip (A_Thishotkey " OFF")
+      ToolTip tt[2]
       SetTimer ()=>ToolTip(), -1200
    }
 
