@@ -6,5 +6,5 @@ This script for AutoHotkey enhances the Numpad and the Capslock
 
 You can peek between **with** or **without** tooltips.
 
-# Licence
+# License
 You can use the code as you want. Enjoy!
