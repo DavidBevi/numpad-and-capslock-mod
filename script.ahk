@@ -4,14 +4,10 @@ NumLock::
 CapsLock::{
    if A_Thishotkey="CapsLock" {
       SetCapsLockState False
-      tt:=["CapsLock OFF - Hold to enable","CapsLock ON"]
-   }
    if A_Thishotkey="NumLock" {
       SetNumLockState True
-      tt:=["NumLock ON - Hold to disable","NumLock OFF"]
-   }
 
-   ToolTip tt[1]
+   ToolTip (A_Thishotkey="CapsLock" ? "CapsLock OFF - Hold to enable" : "NumLock ON - Hold to disable")
    SetTimer ()=>ToolTip(), -1200
 
    Sleep 200
@@ -22,7 +18,7 @@ CapsLock::{
       if A_Thishotkey="NumLock"
          SetNumLockState False
 
-      ToolTip tt[2]
+      ToolTip (A_Thishotkey="CapsLock" ? "CapsLock ON": "NumLock OFF")
       SetTimer ()=>ToolTip(), -1200
    }
 
